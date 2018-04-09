@@ -1,0 +1,32 @@
+//
+//  ViewController.swift
+//  calculator
+//
+//  Created by limenghang on 2018/4/7.
+//  Copyright © 2018年 limenghang. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController
+{
+
+    @IBOutlet weak var display: UILabel!
+    var UserIsInTheMiddleOfTypingANumber : Bool = false
+    @IBAction func appennd(_ sender: UIButton)//定义方法
+    {
+        let digit = sender.currentTitle!
+        if UserIsInTheMiddleOfTypingANumber{
+        display.text = display.text! + digit
+        }
+        else{
+            display.text = digit
+            UserIsInTheMiddleOfTypingANumber = true
+            
+        }
+    }
+    @IBAction func enter() {
+        UserIsInTheMiddleOfTypingANumber = false
+    }
+}
+
